@@ -1,0 +1,117 @@
+/* Reset CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Navbar */
+/* Navbar */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.navbar-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navbar-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.navbar {
+    background: #f3a998;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative; /* Cần thiết để tạo hiệu ứng cho phần tử con */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px; /* Thêm khoảng cách dưới để tạo hiệu ứng */
+    transition: all 0.3s ease-in-out; /* Hiệu ứng mượt mà */
+}
+
+/* Hiệu ứng hover */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0%; /* Ban đầu không có gạch chân */
+    height: 2px;
+    background-color: #ffcc00; /* Màu gạch chân */
+    left: 0;
+    bottom: 0;
+    transition: width 0.4s ease-in-out; /* Hiệu ứng thay đổi chiều rộng */
+}
+
+/* Hiệu ứng khi hover */
+.nav-links li a:hover::after {
+    width: 100%; /* Khi hover vào, gạch chân sẽ mở rộng ra 100% */
+    animation: sparkle 1.5s infinite; /* Áp dụng hiệu ứng lấp lánh */
+}
+
+/* Animation lấp lánh */
+@keyframes sparkle {
+    0% {
+        background-color: #ffffff; /* Màu ban đầu */
+        box-shadow: 0 0 5px #ffcc00, 0 0 10px #ffffff, 0 0 15px #ffcc00; /* Áp dụng hiệu ứng ánh sáng */
+    }
+    50% {
+        background-color: #a9f5fc; /* Màu thay đổi tại giữa animation */
+        box-shadow: 0 0 5px #ffffff, 0 0 10px #ff6600, 0 0 20px #a8e3e7;
+    }
+    100% {
+        background-color: #ffcc00; /* Trở lại màu ban đầu */
+        box-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffffff;
+    }
+}
+
+.nav-icons a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+

@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /WECLE/
+
+# Nếu là file hoặc thư mục có thực thì bỏ qua (cho phép truy cập file tĩnh)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Điều hướng request đến index.php nếu không phải file tĩnh
+RewriteRule ^([^/]+)$ index.php?controller=$1 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)$ index.php?controller=$1&action=$2 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ index.php?controller=$1&action=$2&id=$3 [QSA,L]

@@ -1,0 +1,17 @@
+{
+    "name": "pc/we-cle",
+    "autoload": {
+        "psr-4": {
+            "Pc\\WeCle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TanLuc2003",
+            "email": "tanluc01102003@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    }
+}
