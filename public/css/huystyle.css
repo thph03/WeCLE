@@ -1,0 +1,147 @@
+.site-main {
+    padding: 30px 0;
+}
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+}
+.courses-grid {
+    display: grid;
+    /* Tạo lưới tự động điều chỉnh: tối thiểu 220px/cột, tối đa 4 cột trên màn hình lớn */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px; /* Khoảng cách giữa các thẻ khóa học */
+}
+.content-item, .youtube-embed {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 7px 9px rgba(255, 0, 0, 0.1);
+}
+body.dark-mode .content-item {
+     box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+}
+.content-item h3, .youtube-embed h3 {
+    margin-top: 0;
+    color: var(--primary-color-light);
+}
+body.dark-mode .content-item h3, body.dark-mode .youtube-embed h3 {
+     color: var(--primary-color-dark);
+}
+.youtube-embed iframe {
+    max-width: 40%;
+    justify-items: center;
+}
+.news-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+.news-section li {
+    margin-bottom: 5px;
+}
+.courses-section {
+    padding: 40px 0; /* Khoảng cách trên dưới cho khu vực khóa học */
+    margin-top: 30px; /* Khoảng cách với phần nội dung nổi bật phía trên */
+    border-top: 1px solid var(--border-color-light); /* Đường kẻ phân cách nhẹ nhàng */
+}
+
+body.dark-mode .courses-section {
+     border-top: 1px solid var(--border-color-dark);
+}
+
+.courses-section h2 {
+    text-align: center; /* Căn giữa tiêu đề "Khóa học tiêu biểu" */
+    margin-bottom: 30px;
+    color: var(--primary-color-light);
+}
+body.dark-mode .courses-section h2 {
+    color: var(--primary-color-dark);
+}
+
+.course-item {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px; /* Bo góc nhẹ */
+    overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài nếu có lỗi bo góc */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Đổ bóng nhẹ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng khi hover */
+    display: flex; /* Sử dụng flex để đảm bảo link bao trọn thẻ */
+    flex-direction: column;
+}
+
+body.dark-mode .course-item {
+    background-color: var(--card-bg-dark);
+    border: 1px solid var(--border-color-dark);
+    box-shadow: 0 4px 8px rgba(255,255,255,0.08);
+}
+
+.course-item:hover {
+    transform: translateY(-5px); /* Nhấc thẻ lên một chút khi hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+body.dark-mode .course-item:hover {
+     box-shadow: 0 6px 12px rgba(255,255,255,0.12);
+}
+
+.course-link {
+    text-decoration: none;
+    color: inherit; /* Kế thừa màu chữ từ body */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Đảm bảo link chiếm toàn bộ chiều cao thẻ */
+}
+
+.course-info {
+    padding: 15px;
+    flex-grow: 1; /* Đẩy phần info xuống nếu thẻ có chiều cao khác nhau */
+    display: flex;
+    flex-direction: column;
+}
+
+.course-title {
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    /* Kế thừa màu chữ từ body hoặc đặt màu riêng */
+    /* color: var(--text-color-light); */
+    flex-grow: 1; /* Đảm bảo các tiêu đề chiếm không gian và đẩy nút xuống */
+}
+/* body.dark-mode .course-title {
+     color: var(--text-color-dark);
+} */
+
+.course-description { /* Định dạng cho mô tả nếu bạn thêm vào */
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Cho phép mô tả co giãn */
+}
+
+.course-image {
+    width: 100%; /* Ảnh chiếm toàn bộ chiều rộng thẻ */
+    height: 150px; /* Đặt chiều cao cố định cho ảnh */
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy mà không bị méo (quan trọng) */
+    display: block; /* Loại bỏ khoảng trống thừa dưới ảnh */
+}
+.course-view-detail {
+    display: inline-block; /* Để có thể đặt padding */
+    background-color: var(--primary-color-light);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: auto; /* Đẩy nút/link xuống dưới cùng */
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .course-view-detail {
+    background-color: var(--primary-color-dark);
+    color: #111; /* Chữ tối trên nền cam sáng */
+}
+
+.course-link:hover .course-view-detail { /* Thay đổi màu khi hover vào thẻ */
+     background-color: var(--secondary-color-light);
+}
+body.dark-mode .course-link:hover .course-view-detail {
+     background-color: var(--secondary-color-dark);
+}

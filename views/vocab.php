@@ -80,7 +80,7 @@
     <div class="container">
         <h1>Look up?</h1>
         <form method="POST" action="">
-            <input type="text" name="word" placeholder="Nhập từ cần tra" required>
+            <input type="text" name="word" placeholder="Type the word..." required>
             <button type="submit" class="btn btn-success">
                 <i class="fa fa-search"></i>
             </button>

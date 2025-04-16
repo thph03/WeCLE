@@ -1,17 +1,12 @@
 <?php
 include 'menu/header.php';
 ?>
+<link rel="stylesheet" href="public/css/huystyle.css">
     <section class="banner">
         <img src="public\images\banner_2.png" alt="Banner nền" class="banner-background-image">
-        <?php /* Nội dung text banner nếu có
-        <div class="container banner-content">
-            <h1>Học Tiếng Anh Online Hiệu Quả</h1>
-            <p>Khám phá các khóa học và tài liệu đa dạng.</p>
-        </div>
-        */ ?>
     </section>
 
-    <main class="site-main container">
+    <main class="site-main">
         <h2>Nội dung nổi bật</h2>
         <div class="content-grid">
             <?php // Các khối content item ?>
@@ -19,14 +14,17 @@ include 'menu/header.php';
              <article class="content-item grammar-highlight"><h3>Ngữ pháp cần nhớ</h3><p>Phân biệt thì...</p><a href="#">Xem chi tiết</a></article>
              <article class="content-item vocabulary-spotlight"><h3>Từ vựng theo chủ đề</h3><p>Chủ đề: Du lịch...</p><a href="#">Học ngay</a></article>
              <article class="content-item work-english"><h3>Tiếng Anh công sở</h3><p>Cách viết email...</p><a href="#">Tìm hiểu</a></article>
-             <section class="youtube-embed">
-                 <h3>Video bài học</h3>
-                 <?php $youtube_link = "https://www.youtube.com/embed/Ge7c7otG2mk"; // Thay ID video ?>
-                 <iframe width="960" height="315" src="<?php echo htmlspecialchars($youtube_link); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </section>
+             <br>
              <article class="content-item news-section"><h3>Tin tức mới nhất</h3><ul><li><a href="#">Bản tin giáo dục...</a></li><li><a href="#">Phương pháp học mới...</a></li></ul><a href="#">Xem tất cả tin tức</a></article>
              <article class="content-item pronunciation-tip"><h3>Mẹo phát âm</h3><p>Cách phân biệt âm...</p><a href="#">Luyện tập</a></article>
-        </div> <?php // end .content-grid ?>
+             <br>
+        </div> 
+        
+        <section class="youtube-embed">
+                 <h3>Video bài học</h3><br>
+                 <?php $youtube_link = "https://www.youtube.com/embed/Ge7c7otG2mk"; // Thay ID video ?>
+                 <iframe width="960" height="315" src="<?php echo htmlspecialchars($youtube_link); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </section><?php // end .content-grid ?>
 
         <section class="courses-section">
             <h2>Khóa học tiêu biểu</h2>
