@@ -3,6 +3,7 @@ require_once "models/Course.php";
 require_once 'models/Category.php';
 require_once 'config/database.php';
 require_once 'models/Users.php';
+require_once 'middlewares/AuthMiddleware.php';
 
 class AdminController
 {
@@ -15,13 +16,14 @@ class AdminController
 
     public function index()
     {
-        //AuthMiddleware::adminOnly();
+        AuthMiddleware::adminOnly();
         $courses = $this->courseModel->getAll();
         require "views/admin/course/index.php";
     }
 
     public function add()
     {
+        AuthMiddleware::adminOnly();
         $categoryModel = new Category();
         $categories = $categoryModel->getAll();
 
@@ -58,6 +60,7 @@ class AdminController
 
     public function edit()
     {
+        AuthMiddleware::adminOnly();
         $categoryModel = new Category();
         $categories = $categoryModel->getAll();
 
@@ -112,6 +115,7 @@ class AdminController
 
     public function userList()
     {
+        AuthMiddleware::adminOnly();
         $userModel = new User();
         $users = $userModel->getUserCourses();
 
@@ -120,6 +124,7 @@ class AdminController
 
     public function userEdit($id)
     {
+        AuthMiddleware::adminOnly();
         $userModel = new User();
         $user = $userModel->getById($id);
         $userCourses = $userModel->getUserCourses($id);
