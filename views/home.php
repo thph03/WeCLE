@@ -79,9 +79,10 @@ include 'menu/header.php';
     }
 
     .highlight-carousel-wrapper {
-        overflow: hidden;
-        position: relative;
-        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+
     }
 
     .highlight-carousel {
@@ -89,6 +90,7 @@ include 'menu/header.php';
         gap: 20px;
         transition: transform 0.5s ease-in-out;
         will-change: transform;
+        scroll-snap-align: start;
     }
 
     .content-item {
@@ -164,7 +166,7 @@ include 'menu/header.php';
         <h3 style="text-align: center;">Video bài học</h3><br>
         <?php $youtube_link = "https://www.youtube.com/embed/Ge7c7otG2mk"; // Thay ID video 
         ?>
-        <iframe width="960" height="315" src="<?php echo htmlspecialchars($youtube_link); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="600" height="300" src="<?php echo htmlspecialchars($youtube_link); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </section>
 
     <section class="courses-section">
@@ -235,17 +237,16 @@ include 'menu/footer.php';
 
     function autoSlide() {
         const items = carousel.children;
-        const visible = 4;
-        const total = items.length;
+        const itemWidth = items[0].offsetWidth + 20; // tính cả khoảng cách gap
 
         scrollIndex++;
-        if (scrollIndex > total - visible) {
+
+        if (scrollIndex * itemWidth >= carousel.scrollWidth - carousel.clientWidth) {
             scrollIndex = 0;
         }
 
-        const itemWidth = items[0].offsetWidth + 20; // 20 là khoảng cách (gap)
         carousel.style.transform = `translateX(-${scrollIndex * itemWidth}px)`;
     }
 
-    setInterval(autoSlide, 3000); // 3 giây lướt 1 lần
+    setInterval(autoSlide, 3000); // 3 giây chuyển slide
 </script>

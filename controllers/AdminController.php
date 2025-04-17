@@ -18,6 +18,17 @@ class AdminController
     {
         AuthMiddleware::adminOnly();
         $courses = $this->courseModel->getAll();
+       
+        $limit = 5; // 5 khóa học/ trang
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($page - 1) * $limit;
+
+        $totalCourses = $this->courseModel->countCourses(); // tổng khóa học
+        $totalPages = ceil($totalCourses / $limit);
+
+        // Lấy danh sách khóa học có phân trang
+        $courses = $this->courseModel->getCoursesWithLimit($limit, $offset);
+
         require "views/admin/course/index.php";
     }
 
@@ -118,6 +129,7 @@ class AdminController
         AuthMiddleware::adminOnly();
         $userModel = new User();
         $users = $userModel->getUserCourses();
+        
 
         include "views/admin/user/index.php";
     }

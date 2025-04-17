@@ -151,3 +151,15 @@ body.dark-mode .course-view-detail {
 body.dark-mode .course-link:hover .course-view-detail {
      background-color: var(--secondary-color-dark);
 }
+
+.banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-background-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}

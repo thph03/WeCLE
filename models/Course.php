@@ -75,11 +75,26 @@ class Course {
         $stmt->execute([$user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
 
     public function unregisterUser($user_id, $course_id) {
         $stmt = $this->conn->prepare("DELETE FROM user_courses WHERE user_id = ? AND course_id = ?");
         return $stmt->execute([$user_id, $course_id]);
+    }
+
+    public function countCourses() {
+        $sql = "SELECT COUNT(*) as total FROM course";
+        $stmt = $this->conn->query($sql);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['total'];
+    }
+    
+    public function getCoursesWithLimit($limit, $offset) {
+        $sql = "SELECT * FROM course LIMIT :limit OFFSET :offset";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>

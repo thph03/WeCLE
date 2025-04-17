@@ -62,6 +62,22 @@ class User
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function countUsers() {
+        $sql = "SELECT COUNT(*) as total FROM users";
+        $stmt = $this->conn->query($sql);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['total'];
+    }
+    
+    public function getUsersWithLimit($limit, $offset) {
+        $sql = "SELECT * FROM users LIMIT :limit OFFSET :offset";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function isEmailExists($email)
     {
         $stmt = $this->conn->prepare("SELECT id FROM users WHERE email = ?");
@@ -92,7 +108,5 @@ class User
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
-
-    
 
 }
