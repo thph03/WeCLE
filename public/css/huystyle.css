@@ -27,9 +27,15 @@ body.dark-mode .content-item {
 body.dark-mode .content-item h3, body.dark-mode .youtube-embed h3 {
      color: var(--primary-color-dark);
 }
+.youtube-embed {
+    text-align: center;
+    padding: 40px 0;
+}
+
 .youtube-embed iframe {
-    max-width: 40%;
-    justify-items: center;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 .news-section ul {
     list-style: none;
