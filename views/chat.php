@@ -135,6 +135,7 @@
   </div>
 </div>
 
+<?php include 'views/menu/footer.php'; ?>
 <script>
   const chatBox = document.getElementById('chatBox');
   const chatForm = document.getElementById('chatForm');

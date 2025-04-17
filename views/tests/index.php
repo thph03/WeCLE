@@ -83,3 +83,4 @@
         </li>
     <?php endforeach; ?>
 </ul>
+<?php include 'views/menu/footer.php'; ?>
